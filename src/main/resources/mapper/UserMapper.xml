@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.house.houseprovider.mapper.UserMapper">
+
+
+
+    <select id="findAll" resultType="cn.house.houseprovider.pojo.User">
+        select
+                userId as userId,
+                userName as userName,
+                mobile as mobile
+        from users
+    </select>
+
+
+    <insert id="saveAll" parameterType="java.util.List">
+        insert into users(
+                        userId,
+                        userName,
+                        mobile)
+        values(
+                     #{list[0].userId},
+                     #{list[0].userName},
+                     #{list[0].mobile})
+    </insert>
+
+</mapper>
